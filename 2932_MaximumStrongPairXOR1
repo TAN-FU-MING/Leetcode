@@ -1,0 +1,15 @@
+int maximumStrongPairXor(int* nums, int numsSize) {
+    /*
+        用兩層for迴圈找出滿足條件的所有pair順便計算XOR並記下最大值
+    */
+    int max = -1;
+    for(int i = 0; i < numsSize; i++){
+        for(int j = i; j < numsSize; j++){
+            if(abs(nums[i]-nums[j]) <= (nums[i] < nums[j] ? nums[i]:nums[j])){
+                int xor = nums[i] ^ nums[j];
+                if(xor > max) max = xor;
+            } // else do nothing
+        }
+    }
+    return max;
+}
